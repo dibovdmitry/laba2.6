@@ -4,8 +4,9 @@
 from datetime import date
 import sys
 
+
 if __name__ == '__main__':
-    Airplane = []
+    airplane = []
 
     while True:
 
@@ -19,15 +20,15 @@ if __name__ == '__main__':
             number = input("Номер рейса ")
             model = float(input("Тип самолёта "))
 
-            Airplanes = {
+            airplanes = {
                 'path': path,
                 'number': number,
                 'model': model,
             }
 
-            Airplane.append(Airplanes)
-            if len(Airplane) > 1:
-                Airplane.sort(key=lambda item: item.get('path', ''))
+            airplane.append(airplanes)
+            if len(airplane) > 1:
+                airplane.sort(key=lambda item: item.get('number', ''))
 
         elif command == 'list':
             line = '+-{}-+-{}-+-{}-+-{}-+'.format(
@@ -47,13 +48,13 @@ if __name__ == '__main__':
             )
             print(line)
 
-            for idx, Airplanes in enumerate(Airplane, 1):
+            for idx, airplanes in enumerate(airplane, 1):
                 print(
                     '| {:>4} | {:<25} | {:<20} | {:>25} |'.format(
                         idx,
-                        Airplanes.get('path', ''),
-                        Airplanes.get('number', ''),
-                        Airplanes.get('model', 0),
+                        airplanes.get('path', ''),
+                        airplanes.get('number', ''),
+                        airplanes.get('model', 0),
                     )
                 )
             print(line)
@@ -61,22 +62,23 @@ if __name__ == '__main__':
         elif command.startswith('select '):
             today = date.today()
 
-            parts = command.split(' ', maxsplit=2)
-            sel = int(parts[1])
+            parts = command.split(' ', maxsplit=10)
+            sel = str(parts[1])
 
             count = 0
-            for Airplanes in Airplane:
-                if Airplanes.get('path') == sel:
+            for airplanes in airplane:
+                if airplanes.get('path') == sel:
 
                     count += 1
                     print(
-                        '{:>4}: {}'.format(count, Airplanes.get('path', ''))
+                        '{:>4}: {}'.format(count, airplanes.get('path', ''))
                     )
-                    print('Номер рейса', Airplanes.get('number', ''))
-                    print('Тип самолёта:', Airplanes.get('model', ''))
+                    print('Номер рейса', airplanes.get('number', ''))
+                    print('Тип самолёта:', airplanes.get('model', ''))
 
             if count == 0:
                 print("Нет таких рейсов.")
+
         elif command == 'help':
             print("Список команд:\n")
             print("add - добавить рейс;")
