@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-
 from datetime import date
 import sys
+
 
 if __name__ == '__main__':
     school = {'1а': 33, '1б': 29, '2а': 15, '2б': 19, '3а': 35, '3б': 15, '4а': 22, '4б': 32}
