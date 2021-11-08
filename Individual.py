@@ -67,7 +67,7 @@ if __name__ == '__main__':
 
             count = 0
             for airplanes in airplane:
-                if airplanes.get('path') == sel:
+                if airplanes.get('path') <= sel:
 
                     count += 1
                     print(
