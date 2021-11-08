@@ -4,6 +4,7 @@
 from datetime import date
 import sys
 
+
 if __name__ == '__main__':
     workers = []
 
