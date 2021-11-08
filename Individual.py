@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-from datetime import date
 import sys
 
 
@@ -60,15 +59,12 @@ if __name__ == '__main__':
             print(line)
 
         elif command.startswith('select '):
-            today = date.today()
-
             parts = command.split(' ', maxsplit=2)
             sel = str(parts[1])
 
             count = 0
             for airplanes in airplane:
                 if airplanes.get('path') <= sel:
-
                     count += 1
                     print(
                         '{:>4}: {}'.format(count, airplanes.get('path', ''))
