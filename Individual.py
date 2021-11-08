@@ -62,7 +62,7 @@ if __name__ == '__main__':
         elif command.startswith('select '):
             today = date.today()
 
-            parts = command.split(' ', maxsplit=10)
+            parts = command.split(' ', maxsplit=2)
             sel = str(parts[1])
 
             count = 0
